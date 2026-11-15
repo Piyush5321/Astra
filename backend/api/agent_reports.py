@@ -3,7 +3,7 @@
 from pathlib import Path
 
 from fastapi import APIRouter, Depends, HTTPException
-from fastapi.responses import FileResponse
+from fastapi.responses import Response
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
@@ -70,6 +70,9 @@ def download_report(report_id: str, download: bool = False, db: Session = Depend
             r = build_report(db, r.run_id, r.site_id, report_id=r.id)
         except (NotFound, ValueError) as exc:
             raise HTTPException(404, str(exc)) from exc
-    return FileResponse(r.file_path, media_type="application/pdf",
-                        filename=Path(r.file_path).name,
-                        content_disposition_type="attachment" if download else "inline")
+    # Send the whole (small, ~100 KB) PDF in one body: Vercel's Python runtime
+    # drops streamed file responses, delivering headers with an empty body.
+    disposition = "attachment" if download else "inline"
+    return Response(Path(r.file_path).read_bytes(), media_type="application/pdf",
+                    headers={"Content-Disposition":
+                             f'{disposition}; filename="{Path(r.file_path).name}"'})

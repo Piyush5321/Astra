@@ -17,6 +17,13 @@ def test_openapi_and_frontend_served(client):
     assert client.get("/openapi.json").status_code == 200
     r = client.get("/")
     assert r.status_code == 200 and "ASTRA" in r.text
+    js = client.get("/js/app.js")
+    assert js.status_code == 200 and js.headers["content-type"].startswith("text/javascript")
+    assert int(js.headers["content-length"]) == len(js.content) > 0
+    assert client.get("/css/style.css").headers["content-type"].startswith("text/css")
+    assert client.get("/../backend/config.py").status_code == 404
+    assert client.get("/missing.js").status_code == 404
+    assert client.get("/api/nope").status_code == 404
 
 
 def test_locations_and_targets(client):

@@ -4,9 +4,8 @@ import logging
 import threading
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, HTTPException, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
 from sqlalchemy.exc import IntegrityError
 
 from backend.api.agent_reports import router as agent_reports_router
@@ -86,9 +85,31 @@ app.include_router(sites_router)
 app.include_router(missions_router)
 app.include_router(agent_reports_router)
 
-FRONTEND_DIR = PROJECT_ROOT / "frontend"
-if FRONTEND_DIR.exists():
-    app.mount("/", StaticFiles(directory=FRONTEND_DIR, html=True), name="frontend")
+FRONTEND_DIR = (PROJECT_ROOT / "frontend").resolve()
+# Explicit types: some hosts (and the Windows registry) map .js to text/plain,
+# which browsers reject for ES modules.
+CONTENT_TYPES = {
+    ".html": "text/html; charset=utf-8", ".css": "text/css; charset=utf-8",
+    ".js": "text/javascript; charset=utf-8", ".json": "application/json",
+    ".svg": "image/svg+xml", ".png": "image/png", ".ico": "image/x-icon",
+}
+
+
+@app.get("/{file_path:path}", include_in_schema=False)
+def frontend(file_path: str) -> Response:
+    """Serve the static frontend.
+
+    Files are returned as one complete body rather than streamed (StaticFiles):
+    Vercel's Python runtime delivers streamed responses with an empty body.
+    """
+    if file_path.startswith("api/"):
+        raise HTTPException(404, "Not Found")
+    target = (FRONTEND_DIR / (file_path or "index.html")).resolve()
+    if not target.is_relative_to(FRONTEND_DIR) or not target.is_file():
+        raise HTTPException(404, "Not Found")
+    return Response(target.read_bytes(),
+                    media_type=CONTENT_TYPES.get(target.suffix, "application/octet-stream"),
+                    headers={"Cache-Control": "public, max-age=300"})
 
 
 if __name__ == "__main__":
