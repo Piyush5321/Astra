@@ -124,8 +124,10 @@ Phase 5 — Integration and delivery
 - [x] T30 Bug fixing, provenance, missing-data, API errors
 - [~] T31 Production configuration done (Dockerfile, .env.example); NOT built/deployed:
       Docker not installed locally and no deployment target/credentials provided.
-      Vercel config added (api/index.py, vercel.json, .vercelignore); simulated locally
-      with VERCEL=1, not yet deployed (needs the user's Vercel login).
+      DEPLOYED on Vercel: https://nasa-astra.vercel.app (project nasa-astra, GitHub
+      Piyush5321/Astra main auto-deploys). Verified live: pages, API, discovery, agent,
+      PDF, live NASA POWER. Without DATABASE_URL (Neon) each instance has its own /tmp
+      SQLite, so runs can be missing across instances - connect Neon for persistence.
 - [x] T32 README, architecture docs, acknowledgments, demo script, screenshots
 
 ## Session log / next action
@@ -145,3 +147,9 @@ Phase 5 — Integration and delivery
   - Exercise the Claude agent with a real key (only mocked tests so far).
   - Curate more target thermal references (Jezero, Meridiani, Aristarchus, south pole).
   - Optional: user-defined candidate locations (POST /api/locations + live acquisition).
+- 2026-11-15: Vercel deployment fixes: .gitignore 'data/' excluded backend/data (anchored
+  to /data/); rasterio needs libexpat (absent on Vercel) -> runtime reads checksummed .npz
+  copies, rasterio moved to requirements-dev; Vercel passes rewritten path /api/index ->
+  rewrite carries ?__path= which api/index.py restores. Frontend/PDF now served as whole
+  bodies (a suspected streaming bug turned out to be a curl measurement artefact; the
+  change is harmless and kept).
