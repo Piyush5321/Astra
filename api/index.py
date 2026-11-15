@@ -1,23 +1,30 @@
-"""Vercel serverless entry point: exposes the ASTRA FastAPI app (API + frontend)."""
+"""Vercel serverless entry point: exposes the ASTRA FastAPI app (API + frontend).
+
+vercel.json rewrites every URL to this function as ``/api/index?__path=/<original>``
+because the function itself only sees the rewritten path ``/api/index``. This
+wrapper restores the original path (and the remaining query string) before the
+request reaches FastAPI.
+"""
 
 import sys
 from pathlib import Path
+from urllib.parse import parse_qsl, urlencode
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from backend.main import app as _astra  # noqa: E402
 
-_logged = 0
+PATH_PARAM = "__path"
 
 
 async def app(scope, receive, send):
-    # TEMPORARY diagnostics: log what path/headers Vercel passes through.
-    global _logged
-    if scope.get("type") == "http" and _logged < 5:
-        _logged += 1
-        hdrs = {k.decode(): v.decode()[:120] for k, v in scope.get("headers", [])
-                if k.decode().startswith(("x-", "forwarded"))}
-        print(f"ASTRA-DIAG path={scope.get('path')!r} raw={scope.get('raw_path')!r} "
-              f"root={scope.get('root_path')!r} qs={scope.get('query_string')!r} hdrs={hdrs}",
-              flush=True)
+    if scope.get("type") in ("http", "websocket"):
+        pairs = parse_qsl(scope.get("query_string", b"").decode("latin-1"),
+                          keep_blank_values=True)
+        original = next((v for k, v in pairs if k == PATH_PARAM), None)
+        if original is not None:
+            path = "/" + original.lstrip("/")
+            rest = [(k, v) for k, v in pairs if k != PATH_PARAM]
+            scope = {**scope, "path": path, "raw_path": path.encode(),
+                     "query_string": urlencode(rest).encode()}
     await _astra(scope, receive, send)
