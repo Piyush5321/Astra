@@ -1,0 +1,39 @@
+{
+  "site_id": "iceland-holuhraun",
+  "body": "earth",
+  "product": "Copernicus DEM GLO-30",
+  "provider": "ESA / Airbus (Copernicus)",
+  "source_url": "https://elevationeuwest.blob.core.windows.net/copernicus-dem/COP30_hh/Copernicus_DSM_COG_10_N65_00_W018_00_DEM.tif; https://elevationeuwest.blob.core.windows.net/copernicus-dem/COP30_hh/Copernicus_DSM_COG_10_N65_00_W017_00_DEM.tif; https://elevationeuwest.blob.core.windows.net/copernicus-dem/COP30_hh/Copernicus_DSM_COG_10_N64_00_W018_00_DEM.tif; https://elevationeuwest.blob.core.windows.net/copernicus-dem/COP30_hh/Copernicus_DSM_COG_10_N64_00_W017_00_DEM.tif",
+  "attribution": "Copernicus DEM GLO-30, (c) DLR e.V. 2010-2014 and (c) Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; accessed via Microsoft Planetary Computer. Not a NASA product.",
+  "vertical_reference": "EGM2008 geoid (Copernicus DEM heights)",
+  "native_resolution_m": 30.9,
+  "georef": {
+    "kind": "geographic",
+    "transform": [
+      0.0005555555555555556,
+      0.0,
+      -17.17941632400983,
+      0.0,
+      -0.0002777777777777778,
+      65.01838786001456
+    ],
+    "radius_m": 6371008.8,
+    "center": [
+      64.87,
+      -16.83
+    ],
+    "crs": "EPSG:4326"
+  },
+  "shape": [
+    1068,
+    1258
+  ],
+  "valid_fraction": 1.0,
+  "retrieved_at": "2026-11-15T15:51:36+00:00",
+  "notes": [
+    "NASADEM does not cover this latitude (60 N - 56 S); Copernicus GLO-30 used as a documented non-NASA fallback."
+  ],
+  "file": "iceland-holuhraun_dem.tif",
+  "sha256": "c32032e7983d101882f69cedee8dc163d00c225a203f45bbb5a89dd9e40a7f44",
+  "is_sample": false
+}

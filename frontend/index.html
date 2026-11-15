@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="ASTRA — Autonomous Scientific Terrain Research & Analysis: Earth analog discovery for Moon and Mars regions."
+    />
+    <title>ASTRA — Planetary Analog Discovery</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23c2410c'/%3E%3Ccircle cx='12' cy='12' r='5' fill='%23e2e8f0'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#/mission" aria-label="ASTRA home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">ASTRA<small>Planetary analog discovery</small></span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="#/mission" data-nav="mission">1 · Mission</a>
+        <a href="#/discovery" data-nav="discovery">2 · Discovery</a>
+        <a href="#/location" data-nav="location">3 · Evidence</a>
+        <a href="#/agent" data-nav="agent">4 · Research agent</a>
+        <a href="#/reports" data-nav="reports">5 · Reports</a>
+        <a href="#/data" data-nav="data">Data &amp; methods</a>
+      </nav>
+      <div class="status" id="status" title="Backend status">
+        <span class="dot"></span><span class="status-text">Connecting…</span>
+      </div>
+    </header>
+
+    <main id="view" tabindex="-1" aria-live="polite"></main>
+
+    <footer class="footer">
+      <p>
+        Data: NASA POWER (NASA LaRC), NASADEM (NASA JPL / LP DAAC), LRO LOLA and MGS MOLA
+        (NASA GSFC, PDS Geosciences Node), Copernicus DEM GLO-30 (ESA / Airbus) where NASADEM
+        has no coverage. Basemaps: NASA EOSDIS GIBS Blue Marble, © OpenStreetMap contributors.
+      </p>
+      <p>
+        Similarity scores compare selected measurable properties only. No Earth site
+        reproduces lunar or Martian gravity, vacuum or atmosphere, or radiation.
+      </p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>

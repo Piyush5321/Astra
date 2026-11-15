@@ -1,0 +1,37 @@
+{
+  "site_id": "rann-of-kutch",
+  "body": "earth",
+  "product": "NASADEM_HGT v001",
+  "provider": "NASA JPL / LP DAAC",
+  "source_url": "https://nasademeuwest.blob.core.windows.net/nasadem-cog/v001/NASADEM_HGT_n24e069.tif; https://nasademeuwest.blob.core.windows.net/nasadem-cog/v001/NASADEM_HGT_n23e069.tif",
+  "attribution": "NASADEM, NASA JPL (2020), distributed by NASA LP DAAC; accessed as COGs via Microsoft Planetary Computer.",
+  "vertical_reference": "EGM96 geoid (NASADEM heights)",
+  "native_resolution_m": 30.9,
+  "georef": {
+    "kind": "geographic",
+    "transform": [
+      0.0002777777777777778,
+      0.0,
+      69.6376951402124,
+      0.0,
+      -0.0002777777777777778,
+      24.048387860014547
+    ],
+    "radius_m": 6371008.8,
+    "center": [
+      23.9,
+      69.8
+    ],
+    "crs": "EPSG:4326"
+  },
+  "shape": [
+    1068,
+    1169
+  ],
+  "valid_fraction": 0.9990636704119851,
+  "retrieved_at": "2026-11-15T15:51:04+00:00",
+  "notes": [],
+  "file": "rann-of-kutch_dem.tif",
+  "sha256": "52e23cb6da3fe9aabc29624101da2792e746391d4b8df61504a8a3addc4f87ee",
+  "is_sample": false
+}

@@ -1,0 +1,39 @@
+{
+  "site_id": "moon-aristarchus-plateau",
+  "body": "moon",
+  "product": "LOLA LDEM_64 (V3.1)",
+  "provider": "NASA GSFC LOLA team / PDS Geosciences Node",
+  "source_url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/cylindrical/img/ldem_64.img",
+  "attribution": "LRO LOLA Gridded Data Record, NASA Goddard Space Flight Center / LOLA Science Team; distributed by the NASA PDS Geosciences Node.",
+  "vertical_reference": "Height above 1737.4 km reference sphere",
+  "native_resolution_m": 473.8,
+  "georef": {
+    "kind": "geographic",
+    "transform": [
+      0.015625,
+      0.0,
+      308.390625,
+      0.0,
+      -0.015625,
+      26.546875
+    ],
+    "radius_m": 1737400.0,
+    "center": [
+      26.0,
+      309.0
+    ],
+    "crs": "+proj=longlat +R=1737400 +no_defs"
+  },
+  "shape": [
+    70,
+    78
+  ],
+  "valid_fraction": 1.0,
+  "retrieved_at": "2026-11-15T15:52:04+00:00",
+  "notes": [
+    "LDEM_64 cells without LOLA shots are interpolated by the producer (GMT surface), which smooths terrain between tracks."
+  ],
+  "file": "moon-aristarchus-plateau_dem.tif",
+  "sha256": "d6b1f1920a31901dc29e0c4b9e52cddc19c748e6356647912274eef2220036ab",
+  "is_sample": false
+}

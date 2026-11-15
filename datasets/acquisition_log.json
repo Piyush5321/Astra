@@ -1,0 +1,38 @@
+{
+  "run_at": "2026-11-15T15:56:14+00:00",
+  "results": [
+    {
+      "site": "ladakh-tso-kar",
+      "power": "downloaded"
+    },
+    {
+      "site": "lonar-crater",
+      "power": "downloaded"
+    },
+    {
+      "site": "rann-of-kutch",
+      "power": "downloaded"
+    },
+    {
+      "site": "deccan-traps-mahabaleshwar",
+      "power": "downloaded"
+    },
+    {
+      "site": "atacama-yungay",
+      "power": "downloaded"
+    },
+    {
+      "site": "iceland-holuhraun",
+      "power": "downloaded"
+    },
+    {
+      "site": "death-valley-badwater",
+      "power": "downloaded"
+    },
+    {
+      "site": "mcmurdo-wright-valley",
+      "power": "downloaded"
+    }
+  ],
+  "failures": []
+}

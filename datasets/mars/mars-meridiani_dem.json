@@ -1,0 +1,39 @@
+{
+  "site_id": "mars-meridiani",
+  "body": "mars",
+  "product": "MOLA MEGDR 128 ppd topography (v2.0)",
+  "provider": "NASA GSFC MOLA team / PDS Geosciences Node",
+  "source_url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/megt00n270hb.img",
+  "attribution": "MGS MOLA Mission Experiment Gridded Data Record (MEGDR), NASA Goddard Space Flight Center / MOLA Science Team; distributed by the NASA PDS Geosciences Node.",
+  "vertical_reference": "Planetary radius minus GMM3 areoid",
+  "native_resolution_m": 463.1,
+  "georef": {
+    "kind": "geographic",
+    "transform": [
+      0.0078125,
+      0.0,
+      354.1875,
+      0.0,
+      -0.0078125,
+      -1.6640625
+    ],
+    "radius_m": 3396000.0,
+    "center": [
+      -1.9462,
+      354.4734
+    ],
+    "crs": "+proj=longlat +R=3396000 +no_defs"
+  },
+  "shape": [
+    72,
+    73
+  ],
+  "valid_fraction": 1.0,
+  "retrieved_at": "2026-11-15T15:52:15+00:00",
+  "notes": [
+    "MEGDR bins without MOLA shots are interpolated by the producer; the PDS label reports gaps of up to ~12 km between MOLA profiles near the equator, so many 128 px/deg bins are interpolated."
+  ],
+  "file": "mars-meridiani_dem.tif",
+  "sha256": "289a3da86be00276dea8547b05326ed88454b52f7ca07fa9b4cad5642ad45160",
+  "is_sample": false
+}

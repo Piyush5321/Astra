@@ -1,0 +1,37 @@
+{
+  "site_id": "lonar-crater",
+  "body": "earth",
+  "product": "NASADEM_HGT v001",
+  "provider": "NASA JPL / LP DAAC",
+  "source_url": "https://nasademeuwest.blob.core.windows.net/nasadem-cog/v001/NASADEM_HGT_n20e076.tif; https://nasademeuwest.blob.core.windows.net/nasadem-cog/v001/NASADEM_HGT_n19e076.tif",
+  "attribution": "NASADEM, NASA JPL (2020), distributed by NASA LP DAAC; accessed as COGs via Microsoft Planetary Computer.",
+  "vertical_reference": "EGM96 geoid (NASADEM heights)",
+  "native_resolution_m": 30.9,
+  "georef": {
+    "kind": "geographic",
+    "transform": [
+      0.0002777777777777778,
+      0.0,
+      76.3501129951882,
+      0.0,
+      -0.0002777777777777778,
+      20.124387860014547
+    ],
+    "radius_m": 6371008.8,
+    "center": [
+      19.976,
+      76.508
+    ],
+    "crs": "EPSG:4326"
+  },
+  "shape": [
+    1068,
+    1137
+  ],
+  "valid_fraction": 1.0,
+  "retrieved_at": "2026-11-15T15:51:00+00:00",
+  "notes": [],
+  "file": "lonar-crater_dem.tif",
+  "sha256": "6888279433ff293acbeb22e346615cd6a8aa77671133bca6f49f0f70b6bba15a",
+  "is_sample": false
+}

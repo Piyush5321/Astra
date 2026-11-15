@@ -1,0 +1,39 @@
+{
+  "site_id": "mars-jezero",
+  "body": "mars",
+  "product": "MOLA MEGDR 128 ppd topography (v2.0)",
+  "provider": "NASA GSFC MOLA team / PDS Geosciences Node",
+  "source_url": "https://pds-geosciences.wustl.edu/mgs/mgs-m-mola-5-megdr-l3-v1/mgsl_300x/meg128/megt44n000hb.img",
+  "attribution": "MGS MOLA Mission Experiment Gridded Data Record (MEGDR), NASA Goddard Space Flight Center / MOLA Science Team; distributed by the NASA PDS Geosciences Node.",
+  "vertical_reference": "Planetary radius minus GMM3 areoid",
+  "native_resolution_m": 463.1,
+  "georef": {
+    "kind": "geographic",
+    "transform": [
+      0.0078125,
+      0.0,
+      77.15625,
+      0.0,
+      -0.0078125,
+      18.7265625
+    ],
+    "radius_m": 3396000.0,
+    "center": [
+      18.4447,
+      77.4508
+    ],
+    "crs": "+proj=longlat +R=3396000 +no_defs"
+  },
+  "shape": [
+    72,
+    76
+  ],
+  "valid_fraction": 1.0,
+  "retrieved_at": "2026-11-15T15:52:08+00:00",
+  "notes": [
+    "MEGDR bins without MOLA shots are interpolated by the producer; the PDS label reports gaps of up to ~12 km between MOLA profiles near the equator, so many 128 px/deg bins are interpolated."
+  ],
+  "file": "mars-jezero_dem.tif",
+  "sha256": "94fb72d142c028f2d7e925f01f7f69930f71451e585f3fc00f6cc1d1c6f368ef",
+  "is_sample": false
+}

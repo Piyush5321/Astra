@@ -1,0 +1,39 @@
+{
+  "site_id": "moon-south-pole-shackleton",
+  "body": "moon",
+  "product": "LOLA LDEM_75S_240M (V2.1)",
+  "provider": "NASA GSFC LOLA team / PDS Geosciences Node",
+  "source_url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_75s_240m.img",
+  "attribution": "LRO LOLA Gridded Data Record, NASA Goddard Space Flight Center / LOLA Science Team; distributed by the NASA PDS Geosciences Node.",
+  "vertical_reference": "Height above 1737.4 km reference sphere",
+  "native_resolution_m": 240.0,
+  "georef": {
+    "kind": "projected",
+    "transform": [
+      240.0,
+      0.0,
+      -16560.0,
+      0.0,
+      -240.0,
+      16560.0
+    ],
+    "radius_m": 1737400.0,
+    "center_xy": [
+      0.0,
+      0.0
+    ],
+    "crs": "+proj=stere +lat_0=-90 +lon_0=0 +k=1 +x_0=0 +y_0=0 +R=1737400 +units=m +no_defs"
+  },
+  "shape": [
+    138,
+    138
+  ],
+  "valid_fraction": 1.0,
+  "retrieved_at": "2026-11-15T15:51:56+00:00",
+  "notes": [
+    "Polar stereographic product; window centred on the south pole."
+  ],
+  "file": "moon-south-pole-shackleton_dem.tif",
+  "sha256": "47ae52dea22e3a5553d44660911b02f4d86a011db7093c2723ca2b71fb9857e4",
+  "is_sample": false
+}

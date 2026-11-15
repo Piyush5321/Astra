@@ -1,0 +1,34 @@
+# Environment configuration and secrets
+.env
+.env.*
+!.env.example
+
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# SQLite databases
+*.sqlite
+*.sqlite3
+*.db
+
+# Local tooling
+.pytest_cache/
+.coverage
+
+# Runtime data (database, generated reports)
+data/
+
+# Local scratch
+*.log
+
+.vercel
+
+# Vercel CLI project link
+.vercel

@@ -1,0 +1,37 @@
+{
+  "site_id": "atacama-yungay",
+  "body": "earth",
+  "product": "NASADEM_HGT v001",
+  "provider": "NASA JPL / LP DAAC",
+  "source_url": "https://nasademeuwest.blob.core.windows.net/nasadem-cog/v001/NASADEM_HGT_s25w071.tif; https://nasademeuwest.blob.core.windows.net/nasadem-cog/v001/NASADEM_HGT_s25w070.tif; https://nasademeuwest.blob.core.windows.net/nasadem-cog/v001/NASADEM_HGT_s24w071.tif; https://nasademeuwest.blob.core.windows.net/nasadem-cog/v001/NASADEM_HGT_s24w070.tif",
+  "attribution": "NASADEM, NASA JPL (2020), distributed by NASA LP DAAC; accessed as COGs via Microsoft Planetary Computer.",
+  "vertical_reference": "EGM96 geoid (NASADEM heights)",
+  "native_resolution_m": 30.9,
+  "georef": {
+    "kind": "geographic",
+    "transform": [
+      0.0002777777777777778,
+      0.0,
+      -70.17253193229634,
+      0.0,
+      -0.0002777777777777778,
+      -23.93161213998545
+    ],
+    "radius_m": 6371008.8,
+    "center": [
+      -24.08,
+      -70.01
+    ],
+    "crs": "EPSG:4326"
+  },
+  "shape": [
+    1068,
+    1170
+  ],
+  "valid_fraction": 0.9982097698389834,
+  "retrieved_at": "2026-11-15T15:51:16+00:00",
+  "notes": [],
+  "file": "atacama-yungay_dem.tif",
+  "sha256": "c1e25cf4ba3f2cea8f6c249e5f34702c4132602705514110af08e755ef0f3bd0",
+  "is_sample": false
+}
