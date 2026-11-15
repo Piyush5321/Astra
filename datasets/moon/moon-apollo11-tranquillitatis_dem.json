@@ -35,5 +35,7 @@
   ],
   "file": "moon-apollo11-tranquillitatis_dem.tif",
   "sha256": "41a64b60520c969b8982ef339e8436ec6ac9a2fe8aa092cf3ea282264b9e05f7",
-  "is_sample": false
+  "is_sample": false,
+  "npz_file": "moon-apollo11-tranquillitatis_dem.npz",
+  "npz_sha256": "f1cf7d68080d59923225c2aca285b08c36ed75dccf96b6d5b525851989ff4f41"
 }

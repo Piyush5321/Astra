@@ -33,5 +33,7 @@
   "notes": [],
   "file": "deccan-traps-mahabaleshwar_dem.tif",
   "sha256": "eff9b6e70cb940643bbb1c0b0b8315c875566004efb2c76ba400ef92c4e8588b",
-  "is_sample": false
+  "is_sample": false,
+  "npz_file": "deccan-traps-mahabaleshwar_dem.npz",
+  "npz_sha256": "4a985000a55a3b9561997e6639d695490e2b18e0e5fded09e1019c00f4e0f6cf"
 }

@@ -33,5 +33,7 @@
   "notes": [],
   "file": "lonar-crater_dem.tif",
   "sha256": "6888279433ff293acbeb22e346615cd6a8aa77671133bca6f49f0f70b6bba15a",
-  "is_sample": false
+  "is_sample": false,
+  "npz_file": "lonar-crater_dem.npz",
+  "npz_sha256": "a2c956fe1890b335db133097bd2601003f0b96ca4c7cf1f882a1f21c100b8348"
 }

@@ -33,5 +33,7 @@
   "notes": [],
   "file": "rann-of-kutch_dem.tif",
   "sha256": "52e23cb6da3fe9aabc29624101da2792e746391d4b8df61504a8a3addc4f87ee",
-  "is_sample": false
+  "is_sample": false,
+  "npz_file": "rann-of-kutch_dem.npz",
+  "npz_sha256": "ca21cdef472d07cdc9a3652e06c0f2bcb46f46622e60decac26ac1de5a056cc4"
 }

@@ -35,5 +35,7 @@
   ],
   "file": "moon-south-pole-shackleton_dem.tif",
   "sha256": "47ae52dea22e3a5553d44660911b02f4d86a011db7093c2723ca2b71fb9857e4",
-  "is_sample": false
+  "is_sample": false,
+  "npz_file": "moon-south-pole-shackleton_dem.npz",
+  "npz_sha256": "aa3efad82efd13f540c63fcc416798108c026f7a548cebff7959c4277bd108d0"
 }

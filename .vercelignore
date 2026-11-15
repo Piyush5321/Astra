@@ -11,3 +11,5 @@ tests
 docs/screenshots
 Dockerfile
 .dockerignore
+# Runtime reads the .npz copies; GeoTIFFs are for GIS users only.
+datasets/**/*.tif

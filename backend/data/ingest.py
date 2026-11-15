@@ -38,21 +38,33 @@ class IngestError(RuntimeError):
 # --- file loading ---------------------------------------------------------------
 
 def load_dem(site_id: str, root: Path | None = None) -> tuple[np.ndarray, dict]:
-    """Load a DEM subset and its sidecar, verifying the SHA-256 checksum."""
+    """Load a DEM subset and its sidecar, verifying the SHA-256 checksum.
+
+    Reads the .npz copy (NumPy only) when present; falls back to the GeoTIFF,
+    which requires rasterio/GDAL.
+    """
     spec = catalog.SITES_BY_ID[site_id]
     tif, meta_path = dem_paths(spec, root)
-    if not tif.exists() or not meta_path.exists():
+    if not meta_path.exists():
         raise FileNotFoundError(f"No DEM subset for {site_id}; run python -m backend.data.acquire")
     meta = json.loads(meta_path.read_text())
-    digest = sha256_file(tif)
-    if digest != meta.get("sha256"):
-        raise IngestError(f"Checksum mismatch for {tif.name}: file differs from provenance record.")
-    import rasterio
+    npz = tif.with_suffix(".npz")
+    if meta.get("npz_sha256") and npz.exists():
+        if sha256_file(npz) != meta["npz_sha256"]:
+            raise IngestError(f"Checksum mismatch for {npz.name}: file differs from provenance record.")
+        with np.load(npz) as data:
+            arr = data["elevation"].astype("float32")
+    elif tif.exists():
+        if sha256_file(tif) != meta.get("sha256"):
+            raise IngestError(f"Checksum mismatch for {tif.name}: file differs from provenance record.")
+        import rasterio
 
-    with rasterio.open(tif) as src:
-        arr = src.read(1).astype("float32")
+        with rasterio.open(tif) as src:
+            arr = src.read(1).astype("float32")
+    else:
+        raise FileNotFoundError(f"No DEM file for {site_id}; run python -m backend.data.acquire")
     if list(arr.shape) != meta["shape"]:
-        raise IngestError(f"Shape mismatch for {tif.name}.")
+        raise IngestError(f"Shape mismatch for DEM of {site_id}.")
     return arr, meta
 
 

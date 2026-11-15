@@ -33,5 +33,7 @@
   "notes": [],
   "file": "atacama-yungay_dem.tif",
   "sha256": "c1e25cf4ba3f2cea8f6c249e5f34702c4132602705514110af08e755ef0f3bd0",
-  "is_sample": false
+  "is_sample": false,
+  "npz_file": "atacama-yungay_dem.npz",
+  "npz_sha256": "01c26b20487fd3bc6fc416a9fb71d652f7d288ce299466ecc484c495811005ee"
 }

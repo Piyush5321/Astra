@@ -35,5 +35,7 @@
   ],
   "file": "mars-gale_dem.tif",
   "sha256": "049040d77096542a044e13cb322721cd5a1b6587c32b4aa3d21e46569a436a3d",
-  "is_sample": false
+  "is_sample": false,
+  "npz_file": "mars-gale_dem.npz",
+  "npz_sha256": "f3ed33510dbda0c3269c88c079fcb9c2b9c3a01b35abd0cac4557c30469d2df8"
 }

@@ -35,5 +35,7 @@
   ],
   "file": "mcmurdo-wright-valley_dem.tif",
   "sha256": "674a5a1fb5e88b796b08c58234b66fc49fc038df3051c611a8ac2e3d29a0aa91",
-  "is_sample": false
+  "is_sample": false,
+  "npz_file": "mcmurdo-wright-valley_dem.npz",
+  "npz_sha256": "88c22519bec3f8d0d8bb015747deb8387c2953a51e8fc7c8e97eabec27239274"
 }

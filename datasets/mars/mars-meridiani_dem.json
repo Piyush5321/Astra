@@ -35,5 +35,7 @@
   ],
   "file": "mars-meridiani_dem.tif",
   "sha256": "289a3da86be00276dea8547b05326ed88454b52f7ca07fa9b4cad5642ad45160",
-  "is_sample": false
+  "is_sample": false,
+  "npz_file": "mars-meridiani_dem.npz",
+  "npz_sha256": "f66b3bfbf57efe0b72074cd170d834b594653eefb7106e7f2e084ca5ef13a532"
 }

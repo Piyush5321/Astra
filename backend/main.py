@@ -55,7 +55,11 @@ def ensure_ready() -> None:
 
 @asynccontextmanager
 async def lifespan(_app: FastAPI):
-    ensure_ready()
+    try:
+        ensure_ready()
+    except Exception:  # noqa: BLE001 - never let startup kill the process
+        # The first API request retries and returns the error as a 500 response.
+        log.exception("Startup initialisation failed; will retry on first request.")
     yield
 
 

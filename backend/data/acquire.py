@@ -70,12 +70,41 @@ def write_geotiff(path: Path, subset: elevation.ElevationSubset) -> None:
         dst.update_tags(product=subset.product, site_id=subset.site_id, body=subset.body)
 
 
+def write_npz(tif: Path, array: np.ndarray) -> Path:
+    """Write the same elevation array as compressed NumPy (.npz).
+
+    The runtime reads .npz so it does not need rasterio/GDAL, whose native
+    libraries are unavailable on some serverless hosts (e.g. Vercel). The
+    GeoTIFF remains the georeferenced copy for GIS tools.
+    """
+    path = tif.with_suffix(".npz")
+    np.savez_compressed(path, elevation=array.astype("float32"))
+    return path
+
+
+def export_npz(site: SiteSpec) -> dict:
+    """Create the .npz copy of an existing GeoTIFF and record its checksum."""
+    import rasterio
+
+    tif, meta_path = dem_paths(site)
+    meta = json.loads(meta_path.read_text())
+    if sha256_file(tif) != meta["sha256"]:
+        raise RuntimeError(f"{tif.name} does not match its provenance checksum.")
+    with rasterio.open(tif) as src:
+        arr = src.read(1)
+    npz = write_npz(tif, arr)
+    meta["npz_file"], meta["npz_sha256"] = npz.name, sha256_file(npz)
+    meta_path.write_text(json.dumps(meta, indent=2))
+    return {"site": site.id, "npz": npz.name}
+
+
 def acquire_dem(site: SiteSpec, force: bool = False) -> dict:
     tif, meta = dem_paths(site)
     if tif.exists() and meta.exists() and not force:
         return {"site": site.id, "dem": "exists"}
     subset = elevation.read_subset(site.id, site.body, site.latitude, site.longitude)
     write_geotiff(tif, subset)
+    npz = write_npz(tif, subset.array)
     valid = float(np.mean(~np.isnan(subset.array)))
     sidecar = {
         "site_id": site.id, "body": site.body, "product": subset.product,
@@ -84,7 +113,8 @@ def acquire_dem(site: SiteSpec, force: bool = False) -> dict:
         "native_resolution_m": subset.native_resolution_m, "georef": subset.georef,
         "shape": list(subset.array.shape), "valid_fraction": valid,
         "retrieved_at": subset.retrieved_at, "notes": subset.notes,
-        "file": tif.name, "sha256": sha256_file(tif), "is_sample": False,
+        "file": tif.name, "sha256": sha256_file(tif),
+        "npz_file": npz.name, "npz_sha256": sha256_file(npz), "is_sample": False,
     }
     meta.write_text(json.dumps(sidecar, indent=2))
     return {"site": site.id, "dem": "downloaded", "shape": sidecar["shape"],
@@ -110,7 +140,14 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--force", action="store_true", help="Re-download existing files.")
     parser.add_argument("--skip-power", action="store_true")
     parser.add_argument("--skip-dem", action="store_true")
+    parser.add_argument("--export-npz", action="store_true",
+                        help="Only write .npz copies of existing GeoTIFFs (no network).")
     args = parser.parse_args(argv)
+
+    if args.export_npz:
+        for site in ALL_SITES:
+            print(export_npz(site))
+        return 0
 
     wanted = set(args.sites.split(",")) if args.sites else None
     sites = [s for s in ALL_SITES if wanted is None or s.id in wanted]

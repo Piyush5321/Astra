@@ -35,5 +35,7 @@
   ],
   "file": "iceland-holuhraun_dem.tif",
   "sha256": "c32032e7983d101882f69cedee8dc163d00c225a203f45bbb5a89dd9e40a7f44",
-  "is_sample": false
+  "is_sample": false,
+  "npz_file": "iceland-holuhraun_dem.npz",
+  "npz_sha256": "6b10240041110389655bbc761d19ba7ba6aa33699600363e75bf524c1e0069be"
 }

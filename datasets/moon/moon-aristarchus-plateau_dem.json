@@ -35,5 +35,7 @@
   ],
   "file": "moon-aristarchus-plateau_dem.tif",
   "sha256": "d6b1f1920a31901dc29e0c4b9e52cddc19c748e6356647912274eef2220036ab",
-  "is_sample": false
+  "is_sample": false,
+  "npz_file": "moon-aristarchus-plateau_dem.npz",
+  "npz_sha256": "091a010e9ecd37ac0f2a80a22131fa466e85d69d560d6f01da9ee98bf0c4ca0c"
 }

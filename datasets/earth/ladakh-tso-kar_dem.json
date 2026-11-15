@@ -33,5 +33,7 @@
   "notes": [],
   "file": "ladakh-tso-kar_dem.tif",
   "sha256": "88ce2bd80115ace686083398abcc364e1ceb8974d1a76490153972b52fe659d5",
-  "is_sample": false
+  "is_sample": false,
+  "npz_file": "ladakh-tso-kar_dem.npz",
+  "npz_sha256": "31d5b236734ac2fff61a29c86af7edbcfe6011519b71307b8dfad96ceb8b8f19"
 }

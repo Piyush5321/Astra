@@ -35,5 +35,7 @@
   ],
   "file": "mars-jezero_dem.tif",
   "sha256": "94fb72d142c028f2d7e925f01f7f69930f71451e585f3fc00f6cc1d1c6f368ef",
-  "is_sample": false
+  "is_sample": false,
+  "npz_file": "mars-jezero_dem.npz",
+  "npz_sha256": "6b3c527a42f5aab8bbed20e68b9ea726a45c53c54a300074f437e40951cfd319"
 }

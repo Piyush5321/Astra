@@ -33,5 +33,7 @@
   "notes": [],
   "file": "death-valley-badwater_dem.tif",
   "sha256": "d329bdbb9169fdb210b84ffeaaf1417133ef23b7963b3d053548b8a5e1358e6f",
-  "is_sample": false
+  "is_sample": false,
+  "npz_file": "death-valley-badwater_dem.npz",
+  "npz_sha256": "3d6faac6083ef37cfd6bd3c68655315c8299bdd8bfc54a2bc28cfc3899244a47"
 }
