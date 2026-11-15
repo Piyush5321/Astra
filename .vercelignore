@@ -3,7 +3,7 @@
 .env.*
 !.env.example
 .venv
-data
+/data
 **/__pycache__
 *.pyc
 .pytest_cache

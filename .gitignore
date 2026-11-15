@@ -23,7 +23,7 @@ __pycache__/
 .coverage
 
 # Runtime data (database, generated reports)
-data/
+/data/
 
 # Local scratch
 *.log
